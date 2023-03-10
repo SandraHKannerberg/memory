@@ -16,12 +16,24 @@ function flipCard(e) {
 
         cardTwo = clickedCard;
 
-        let cardOneImg = cardOne.querySelector('img'),
-        cardTwoImg = cardTwo.querySelector('img');
+        let cardOneImg = cardOne.querySelector('img').src,
+        cardTwoImg = cardTwo.querySelector('img').src;
         matchedCards(cardOneImg, cardTwoImg)
     }
 }
 
+function matchedCards(img1, img2) {
+    if (img1 === img2) {
+        return console.log("It is a match");
+    }
+
+    //If two cards not matched. Add shake class after 400ms
+    setTimeout(() => {
+        cardOne.classList.add("shake");
+        cardTwo.classList.add("shake");
+    }, 400);
+    
+}
 
 //Adding click-event to all cards
 cards.forEach(card => {
